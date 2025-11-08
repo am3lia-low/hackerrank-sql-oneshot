@@ -1,0 +1,11 @@
+-- wait so
+-- two rows only??
+
+-- ty claude my sorry ass didn't actually know how to solve this
+SELECT
+    ROUND(
+        ABS(MAX(LAT_N) - MIN(LAT_N)) +
+        ABS(MAX(LONG_W) - MIN(LONG_W)),
+        4
+    )
+FROM STATION
