@@ -1,5 +1,5 @@
 # hackerrank-sql-solutions
-MySQL solutions to some hackerrank problems i solved  
+MySQL solutions to some hackerrank problems i solved in my mini SQL run  
 *insert wombat screaming*
 
 if you solve these too, you can get SQL 3 stars in hackerrank (yay!!)  
