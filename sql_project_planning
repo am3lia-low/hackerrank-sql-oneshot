@@ -1,0 +1,20 @@
+SELECT
+    s.Start_Date,
+    e.End_Date
+FROM (
+    SELECT
+        Start_Date,
+        ROW_NUMBER() OVER (ORDER BY Start_Date) AS start
+    FROM Projects
+    WHERE Start_Date NOT IN (SELECT End_Date FROM Projects)
+    ORDER BY Start_Date -- these are start
+) AS s
+INNER JOIN (
+    SELECT
+        End_Date,
+        ROW_NUMBER() OVER (ORDER BY End_Date) AS end
+    FROM Projects
+    WHERE End_Date NOT IN (SELECT Start_Date FROM Projects)
+    ORDER BY End_Date -- these are end dates
+) AS e ON s.start = e.end
+ORDER BY DATEDIFF(e.End_Date, s.Start_Date), s.Start_Date;
